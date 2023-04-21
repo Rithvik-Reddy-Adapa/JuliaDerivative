@@ -3,6 +3,9 @@ Derivative(f, x::Real; h::Real = 1e-8, n::Int = 1)
 `n^th` order derivative of a function `f` at `x`. `h` is delta change
 """
 function Derivative(f, x::Real; h::Real = 1e-8, n::Int = 1)
+    x = BigFloat(x)
+    h = BigFloat(h)
+    n = Int(round(n))
     if n == 0
         dfdx = f(x)
     elseif n == 1
